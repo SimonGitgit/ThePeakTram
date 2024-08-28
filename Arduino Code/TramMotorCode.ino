@@ -22,7 +22,7 @@ void setup()
   Mirf.channel = 90; // Set the used channel
   Mirf.config();
   Serial.println("Listening..."); // Start listening to received data
-  motor1.drive(150);
+  motor1.drive(255);
 }
 void processIncomingData() {
  if (Mirf.dataReady()) { // When the program is received, the received data is output from the serial port
@@ -31,12 +31,12 @@ void processIncomingData() {
     Serial.print("Got data: ");
     Serial.println((char*)receivedData);
     if (strcmp((char*)receivedData, "F") == 0){
-    motor1.drive(150);
+    motor1.drive(255);
     Serial.print("Motor moving forward");
     //delay(500);
     }
     else if (strcmp((char*)receivedData, "B") == 0) {
-      motor1.drive(-150);
+      motor1.drive(-255);
       Serial.print("Motor moving backward");
       //delay(500);
     }
